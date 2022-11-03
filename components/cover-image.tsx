@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import Image from "next/image";
+import Image from 'next/image'
 import Link from 'next/link'
 
 interface Props {
@@ -20,12 +20,13 @@ export default function CoverImage({ title, coverImage, slug }: Props) {
       alt={`Cover Image for ${title}`}
       src={coverImage?.node.sourceUrl}
       className={cn('shadow-small', {
-        'hover:shadow-medium transition-shadow duration-200': slug,
+        'rounded-lg hover:shadow-medium transition-shadow duration-200': slug,
       })}
       style={{
-        maxWidth: "100%",
-        height: "auto"
-      }} />
+        maxWidth: '100%',
+        height: 'auto',
+      }}
+    />
   )
   return (
     <div className="sm:mx-0">
