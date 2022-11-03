@@ -32,13 +32,8 @@ export default function Post({ post, posts, preview }) {
           <>
             <article>
               <Head>
-                <title>
-                  {post.title} | Next.js Blog Example with {CMS_NAME}
-                </title>
-                <meta
-                  property="og:image"
-                  content={post.featuredImage?.node.sourceUrl}
-                />
+                <title>Skiing Pros - {post.title}</title>
+                <meta property="og:image" content={post.featuredImage?.node.sourceUrl} />
               </Head>
               <PostHeader
                 title={post.title}
@@ -48,9 +43,7 @@ export default function Post({ post, posts, preview }) {
                 categories={post.categories}
               />
               <PostBody content={post.content} />
-              <footer>
-                {post.tags.edges.length > 0 && <Tags tags={post.tags} />}
-              </footer>
+              <footer>{post.tags.edges.length > 0 && <Tags tags={post.tags} />}</footer>
             </article>
 
             <SectionSeparator />
@@ -62,11 +55,7 @@ export default function Post({ post, posts, preview }) {
   )
 }
 
-export const getStaticProps: GetStaticProps = async ({
-  params,
-  preview = false,
-  previewData,
-}) => {
+export const getStaticProps: GetStaticProps = async ({ params, preview = false, previewData }) => {
   const data = await getPostAndMorePosts(params?.slug, preview, previewData)
 
   return {
